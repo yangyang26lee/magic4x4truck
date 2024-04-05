@@ -15,6 +15,8 @@ radio.onReceivedValue(function (name, value) {
 })
 let differ = 0
 let speed = 0
-let y = 0
 let x = 0
+let y = 0
 radio.setGroup(100)
+y = 511
+x = 511
