@@ -1,17 +1,20 @@
-radio.onReceivedString(function (receivedString) {
-    if (receivedString == "go") {
-        magicbit.MotorRunDual(magicbit.Motors.M1, 150, magicbit.Motors.M2, 150)
-        magicbit.MotorRunDual(magicbit.Motors.M3, -150, magicbit.Motors.M4, -150)
-    } else if (receivedString == "stop") {
+radio.onReceivedValue(function (name, value) {
+    if (name == "x") {
+        x = value
+    } else if (name == "y") {
+        y = value
+    }
+    if (x > 500 && x < 550 && (y > 500 && y < 550)) {
         magicbit.MotorStopAll()
-    } else if (receivedString == "left") {
-        magicbit.MotorStopAll()
-        magicbit.MotorRunDual(magicbit.Motors.M1, 50, magicbit.Motors.M2, 50)
-        magicbit.MotorRunDual(magicbit.Motors.M3, -150, magicbit.Motors.M4, -150)
-    } else if (receivedString == "right") {
-        magicbit.MotorStopAll()
-        magicbit.MotorRunDual(magicbit.Motors.M3, -50, magicbit.Motors.M4, -50)
-        magicbit.MotorRunDual(magicbit.Motors.M1, 150, magicbit.Motors.M2, 150)
+    } else {
+        speed = y / 2 - 255
+        differ = x / 4 - 128
+        magicbit.MotorRunDual(magicbit.Motors.M1, speed - differ, magicbit.Motors.M2, speed - differ)
+        magicbit.MotorRunDual(magicbit.Motors.M3, 0 - speed - differ, magicbit.Motors.M4, 0 - speed - differ)
     }
 })
-radio.setGroup(25)
+let differ = 0
+let speed = 0
+let y = 0
+let x = 0
+radio.setGroup(100)
