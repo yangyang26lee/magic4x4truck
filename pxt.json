@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "magicbit": "github:emakefun/pxt-magicbit#ee1b367329051c8b117ca4deb5f3a467e8d12720"
+        "magicbit": "github:emakefun/pxt-magicbit#ee1b367329051c8b117ca4deb5f3a467e8d12720",
+        "pxt-PlanetX-AI": "github:elecfreaks/pxt-planetx-ai#v1.0.2"
     },
     "files": [
         "main.blocks",
@@ -16,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "6.0.25",
+        "target": "6.0.26",
         "targetId": "microbit"
     },
     "supportedTargets": [

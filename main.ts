@@ -36,10 +36,14 @@ let joystick = 0
 let x = 0
 let y = 0
 radio.setGroup(100)
+PlanetX_AILens.initModule()
 y = 511
 x = 511
 joystick = 1
 basic.forever(function () {
-    magicbit.Setting_the_on_board_lights(Offset.ONE, RgbColors.Red, rgb_ColorEffect.Flash)
-    magicbit.Setting_the_on_board_lights(Offset.FOUR, RgbColors.Red, rgb_ColorEffect.Flash)
+    if (x > 600) {
+        magicbit.Setting_the_on_board_lights(Offset.ONE, RgbColors.Blue, rgb_ColorEffect.Breathing)
+    } else if (x < 400) {
+        magicbit.Setting_the_on_board_lights(Offset.FOUR, RgbColors.Blue, rgb_ColorEffect.Breathing)
+    }
 })
